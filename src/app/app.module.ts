@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import { TalksAndFiltersComponent } from './talks-and-filters/talks-and-filters.component';
 import { TalkDetailsComponent } from './talk-details/talk-details.component';
 import {BackendService} from './backend.service';
+import {WatchService} from './watch.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {BackendService} from './backend.service';
     ])
   ],
   providers: [
-    BackendService
+    BackendService,
+    WatchService,
   ],
   bootstrap: [AppComponent]
 })
