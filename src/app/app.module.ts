@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import { TalksAndFiltersComponent } from './talks-and-filters/talks-and-filters.component';
 import { TalkDetailsComponent } from './talk-details/talk-details.component';
+import {BackendService} from './backend.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { TalkDetailsComponent } from './talk-details/talk-details.component';
       { path: 'talks/:id', component: TalkDetailsComponent },
     ])
   ],
-  providers: [],
+  providers: [
+    BackendService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

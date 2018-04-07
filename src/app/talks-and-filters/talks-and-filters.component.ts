@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Filters} from '../filters';
 
 @Component({
   selector: 'app-talks-and-filters',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksAndFiltersComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public backend: Backend,
+  ) { }
 
   ngOnInit() {
+  }
+
+  handleFiltersChange(filters: Filters): void {
+    this.backend.changeFilters(filters);
   }
 
 }
