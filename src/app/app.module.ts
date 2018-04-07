@@ -8,6 +8,9 @@ import { TalksAndFiltersComponent } from './talks-and-filters/talks-and-filters.
 import { TalkDetailsComponent } from './talk-details/talk-details.component';
 import {BackendService} from './backend.service';
 import {WatchService} from './watch.service';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import {WatchService} from './watch.service';
     RouterModule.forRoot([
       { path: 'talks', component: TalksAndFiltersComponent },
       { path: 'talks/:id', component: TalkDetailsComponent },
-    ])
+    ]),
+    StoreModule.forRoot({ app: appReducer }, { intialState }),
+    EffectsModule.forRoot([TalksEffects]),
+    StoreRouterConnectingModule,
   ],
   providers: [
     BackendService,
